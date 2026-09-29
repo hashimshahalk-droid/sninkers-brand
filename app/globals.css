@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+html, body { width: 100%; min-height: 100%; margin: 0; background: #fef9f2; }
+body { overflow-x: hidden; }
+.screen-host { width: 100%; height: 100dvh; }
+.screen-frame { display: block; width: 100%; height: 100dvh; border: 0; }
+.info-page { min-height: 100vh; padding: 0 clamp(1.25rem, 6vw, 6rem); color: #3f210e; font-family: Arial, sans-serif; }
+.info-nav { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid #ead9c9; }
+.info-nav nav { display: flex; gap: clamp(.8rem, 3vw, 2rem); }
+.info-page a { color: inherit; text-decoration: none; }
+.info-page a:hover { text-decoration: underline; }
+.info-nav .brand { font-weight: 800; letter-spacing: -.04em; }
+.info-nav .brand span { margin-left: .45rem; font-size: .75rem; font-weight: 500; letter-spacing: 0; }
+.info-hero { max-width: 54rem; margin: clamp(4rem, 12vh, 8rem) auto 4rem; }
+.info-hero .eyebrow { color: #8a4a1e; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; }
+.info-hero h1 { margin: .5rem 0 1rem; font-size: clamp(2.8rem, 8vw, 5.8rem); line-height: .98; letter-spacing: -.06em; }
+.info-hero p:not(.eyebrow), .info-copy { font-size: 1.1rem; line-height: 1.7; color: #61432e; }
+.info-button { display: inline-flex; margin-top: 1rem; border-radius: 999px; background: #54270f; color: white !important; padding: .9rem 1.4rem; font-weight: 700; }
+.info-copy { max-width: 54rem; margin: 0 auto 5rem; padding: 2rem; background: #fffaf4; border-radius: 1.5rem; }
+.info-copy h2 { color: #3f210e; font-size: 1.7rem; }
+.info-copy li { margin: .5rem 0; }
+.info-copy a { color: #8a4a1e; font-weight: 700; }
+.info-footer { max-width: 54rem; margin: 0 auto; padding: 1.5rem 0; border-top: 1px solid #ead9c9; display: flex; justify-content: space-between; gap: 1rem; color: #765d49; }
+@media (max-width: 520px) { .info-nav .brand span { display: none; } .info-nav nav { gap: .75rem; font-size: .9rem; } .info-copy { padding: 1.25rem; } }

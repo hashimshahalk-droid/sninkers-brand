@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><link rel="stylesheet" href="/stitch/styles.css"><link rel="stylesheet" href="/assets/fonts.css"><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fef9f2;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.5rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}input:focus{outline:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_4px_20px_rgba(45,22,6,0.05)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Menu" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-all text-primary-container"><span class="material-symbols-outlined text-2xl">menu</span></button><div class="flex items-center gap-space-xs"><img alt="SNICKERS Brand Logo" class="h-8 w-auto object-contain" src="/assets/af9f31014eb3819b90ab.jpg" loading="eager" decoding="async" /><span class="font-headline-sm text-headline-sm text-primary-container tracking-tight hidden xs:inline-block">SNICKERS</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container text-primary-container transition-transform active:scale-95"><span class="material-symbols-outlined text-2xl">search</span></button><a aria-label="Cart" class="relative w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container text-primary-container transition-transform active:scale-95" data-path="cart" href="/cart" target="_top"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute top-1.5 right-1.5 min-w-[18px] h-[18px] px-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center justify-center shadow-sm">3</span></a><button aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full active:scale-95 transition-transform ml-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="/assets/4d11daf8cc8758e48d1a.jpg" loading="eager" decoding="async" /></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin-mobile">
+<div class="pt-4 pb-2">
+<div class="flex items-center justify-between gap-space-sm mb-1">
+<div class="flex items-center gap-space-xs">
+<span class="inline-block w-2.5 h-2.5 rounded-full bg-secondary-container"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Legendary Satisfaction</span>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-bold">84 Treats</span>
+</div>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary-container tracking-tight">Explore All Bars &amp; Treats</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Roasted peanuts, golden molten caramel, and whipped nougat crafted to fuel your day.</p>
+</div>
+<div class="relative w-full my-3">
+<div class="relative flex items-center bg-surface-container-lowest rounded-full shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] px-4 py-1.5 focus-within:shadow-[0px_10px_24px_-4px_rgba(45,22,6,0.12)] transition-shadow">
+<span class="material-symbols-outlined text-primary-container text-xl mr-2">search</span>
+<input class="w-full bg-transparent font-body-sm text-body-sm text-primary-container placeholder:text-outline-variant py-2 pr-8 focus:outline-none" id="searchInput" placeholder="Search by flavor, protein, or format..." type="text" value=""/>
+<button aria-label="Clear search input" class="absolute right-3.5 p-1 rounded-full text-outline hover:text-primary-container transition-colors hidden" id="clearSearch">
+<span class="material-symbols-outlined text-base">close</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between gap-space-xs py-1.5 mb-2">
+<div class="flex items-center gap-space-xs overflow-x-auto no-scrollbar py-0.5">
+<button class="flex items-center gap-1.5 px-3.5 h-10 rounded-full bg-primary-container text-on-primary font-label-md text-label-md shadow-sm active:scale-95 transition-transform flex-shrink-0" id="filterBtn">
+<span class="material-symbols-outlined text-lg">tune</span>
+<span>Filter</span>
+<span class="w-5 h-5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm flex items-center justify-center font-bold">2</span>
+</button>
+<div class="relative flex-shrink-0">
+<select aria-label="Sort products by" class="appearance-none h-10 pl-3.5 pr-8 rounded-full bg-surface-container font-label-md text-label-md text-primary-container active:scale-95 transition-transform cursor-pointer focus:outline-none">
+<option>Featured</option>
+<option>Price: Low to High</option>
+<option>Highest Rated</option>
+<option>Newest</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-base">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant flex-shrink-0 pl-1">
+<button aria-label="Grid layout view" class="w-9 h-9 rounded-full flex items-center justify-center bg-surface-container text-primary-container">
+<span class="material-symbols-outlined text-lg">grid_view</span>
+</button>
+<button aria-label="Single column view" class="w-9 h-9 rounded-full flex items-center justify-center text-outline hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-lg">view_agenda</span>
+</button>
+</div>
+</div>
+<div class="w-full overflow-x-auto no-scrollbar -mx-margin-mobile px-margin-mobile pb-3 mb-3">
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-full bg-primary-container text-on-primary font-label-md text-label-md whitespace-nowrap active:scale-95 transition-transform shadow-sm">All</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-primary-container active:scale-95 transition-transform">Original Bars</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-primary-container active:scale-95 transition-transform">Peanut Butter</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-primary-container active:scale-95 transition-transform">White &amp; Dark</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-primary-container active:scale-95 transition-transform">Protein &amp; Energy</button>
+<button class="px-4 py-2 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md whitespace-nowrap hover:text-primary-container active:scale-95 transition-transform">Party Bags &amp; Minis</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 mb-6">
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Original" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">240 Cal</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Classic Snickers Original Chocolate Bar cut in half revealing roasted crunchy peanuts gooey stretching golden caramel and fluffy white nougat coated in decadent milk chocolate on a warm studio backdrop" src="/assets/8425f464e61ec8af9f2d.jpg" loading="eager" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-outline">(1.4k)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5"><a href="/product" target="_top">Snickers Original</a></h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">1.86 oz Full Size Bar</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$2.29</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers White Chocolate" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-bold">250 Cal</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers White Chocolate Bar surrounded by roasted peanuts and glistening caramel dipped in creamy smooth ivory white chocolate confection aesthetic lighting" src="/assets/b21fd0e3b8cb05772635.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.8</span>
+<span class="font-label-sm text-label-sm text-outline">(890)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">White Chocolate</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">1.86 oz Limited Batch</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$2.49</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Peanut Butter Squared" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">Rich Butter</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers Peanut Butter Squared chocolate squares showing rich creamy peanut butter filling velvety caramel roasted peanuts and chocolate casing" src="/assets/5f0a59ad081f6ba5cbaf.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-outline">(624)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">Peanut Butter Sq.</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">1.78 oz 2-Square Pack</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$2.99</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Dark Chocolate" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-container text-on-primary font-bold">70% Cacao</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers Dark Chocolate 70 percent bar with glossy deep cocoa coating broken to show dark nougat and toasted nuts in warm moody lighting" src="/assets/80c28b9c2306ad289ccf.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.7</span>
+<span class="font-label-sm text-label-sm text-outline">(418)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">Dark Chocolate</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">1.86 oz Intense Cocoa</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$2.49</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Hi-Protein Bar" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold">20g Protein</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers Hi-Protein Whey Bar featuring real caramel and peanuts packed with athletic fitness power high quality commercial product rendering" src="/assets/dc1813cfe2ad444347be.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.9</span>
+<span class="font-label-sm text-label-sm text-outline">(2.1k)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">Hi-Protein Whey</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">2.01 oz Energy Fuel</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$3.89</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Almond" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-bold">Pure Almond</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers Almond Bar surrounded by whole California roasted almonds gooey caramel nougat and chocolate coating artisanal lighting" src="/assets/94baaf27a929310bdfd1.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.6</span>
+<span class="font-label-sm text-label-sm text-outline">(312)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">Almond Special</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">1.76 oz Artisanal Nut</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$2.69</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Minis Party Pouch" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-bold">Party Size</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers Minis 40 Piece Party Pouch with miniature individually wrapped chocolate bars spilling out in a joyous party setting" src="/assets/192beda229006d995f0a.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">5.0</span>
+<span class="font-label-sm text-label-sm text-outline">(3.4k)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">Minis 40-Pack</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">13.0 oz Share Bag</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$8.99</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-2.5 flex flex-col justify-between shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)] hover:shadow-[0px_12px_28px_-4px_rgba(45,22,6,0.12)] transition-all relative">
+<button aria-label="Favorite Snickers Crispy Rice Crunch" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-surface/90 backdrop-blur-md flex items-center justify-center text-primary-container active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-base">favorite_border</span>
+</button>
+<div class="relative w-full aspect-square bg-surface-container-low rounded-xl overflow-hidden flex items-center justify-center p-2 mb-2">
+<span class="absolute top-2 left-2 z-10 font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-primary-fixed-dim text-on-primary-fixed-variant font-bold">Crunchy</span>
+<img class="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300" data-alt="Snickers Crispy Rice bar showing crisp toasted puffed rice grains mixed with caramel and peanut layers enrobed in chocolate" src="/assets/0c38a820ff9ea6b36de3.jpg" loading="lazy" decoding="async" />
+</div>
+<div class="flex flex-col flex-1 justify-between">
+<div>
+<div class="flex items-center gap-1 mb-1">
+<span class="material-symbols-outlined text-secondary-container text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-primary-container font-bold">4.7</span>
+<span class="font-label-sm text-label-sm text-outline">(520)</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container leading-tight line-clamp-1 mb-0.5">Crispy Rice Bar</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">1.41 oz Light Crunch</p>
+</div>
+<div class="flex items-center justify-between gap-1 pt-1">
+<span class="font-headline-sm text-headline-sm text-primary-container">$2.19</span>
+<button class="add-to-cart-btn px-3 py-2 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm flex items-center gap-1 hover:bg-primary active:scale-95 transition-all">
+<span class="material-symbols-outlined text-base">add</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center justify-center pt-2 pb-6 gap-2">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-surface-container text-primary-container font-label-lg text-label-lg shadow-sm hover:bg-surface-container-high active:scale-95 transition-all" id="loadMoreBtn">
+<span class="material-symbols-outlined text-xl">cached</span>
+<span>Load More Treats (76 Left)</span>
+</button>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Showing 8 of 84 items</span>
+</div>
+<div class="my-4 p-4 rounded-2xl bg-secondary-fixed/30 flex items-center justify-between gap-3 shadow-[0px_4px_16px_-2px_rgba(45,22,6,0.06)]">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl">local_shipping</span>
+</div>
+<div>
+<h3 class="font-label-lg text-label-lg text-primary-container">Snack Fresh Cold-Shipping</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Every order includes thermal insulation to guarantee zero melted bars on arrival.</p>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function() {
+    const searchInput = document.getElementById('searchInput');
+    const clearSearch = document.getElementById('clearSearch');
+
+    if (searchInput && clearSearch) {
+      searchInput.addEventListener('input', (e) => {
+        if (e.target.value.length > 0) {
+          clearSearch.classList.remove('hidden');
+        } else {
+          clearSearch.classList.add('hidden');
+        }
+      });
+
+      clearSearch.addEventListener('click', () => {
+        searchInput.value = '';
+        clearSearch.classList.add('hidden');
+        searchInput.focus();
+      });
+    }
+
+    const cartButtons = document.querySelectorAll('.add-to-cart-btn');
+    cartButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const originalHTML = this.innerHTML;
+        this.innerHTML = '<span class="material-symbols-outlined text-base">check</span><span>Added!</span>';
+        this.classList.remove('bg-primary-container', 'hover:bg-primary');
+        this.classList.add('bg-secondary-container', 'text-on-secondary-container');
+        
+        setTimeout(() => {
+          this.innerHTML = originalHTML;
+          this.classList.remove('bg-secondary-container', 'text-on-secondary-container');
+          this.classList.add('bg-primary-container', 'hover:bg-primary');
+        }, 1400);
+      });
+    });
+
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        const icon = this.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.classList.add('animate-spin');
+        }
+        setTimeout(() => {
+          if (icon) icon.classList.remove('animate-spin');
+          this.querySelector('span:nth-child(2)').textContent = 'Loaded All Fresh Treats';
+          this.disabled = true;
+          this.classList.add('opacity-75', 'pointer-events-none');
+        }, 800);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(45,22,6,0.06)]" data-active-classes="text-primary-container bg-surface-container font-bold"><div class="flex items-center justify-around h-16 px-space-md"><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="home" href="/" target="_top"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-label-sm mt-0.5">Home</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full transition-all active:scale-95 text-primary-container bg-surface-container font-bold" data-path="shop" href="/products" target="_top"><span class="material-symbols-outlined text-2xl">storefront</span><span class="font-label-sm text-label-sm mt-0.5">Shop</span></a><a class="relative flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="cart" href="/cart" target="_top"><div class="relative"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute -top-1 -right-2 min-w-[16px] h-[16px] px-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center justify-center leading-none text-[10px]">3</span></div><span class="font-label-sm text-label-sm mt-0.5">Cart</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="saved" href="/cart" target="_top"><span class="material-symbols-outlined text-2xl">favorite</span><span class="font-label-sm text-label-sm mt-0.5">Saved</span></a></div></nav></body></html>

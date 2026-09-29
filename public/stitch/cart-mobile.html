@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><link rel="stylesheet" href="/stitch/styles.css"><link rel="stylesheet" href="/assets/fonts.css"><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fef9f2;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 0.5rem);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}input:focus{outline:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_4px_20px_rgba(45,22,6,0.05)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Menu" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-all text-primary-container"><span class="material-symbols-outlined text-2xl">menu</span></button><div class="flex items-center gap-space-xs"><img alt="SNICKERS Brand Logo" class="h-8 w-auto object-contain" src="/assets/af9f31014eb3819b90ab.jpg" loading="eager" decoding="async" /><span class="font-headline-sm text-headline-sm text-primary-container tracking-tight hidden xs:inline-block">SNICKERS</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Search" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container text-primary-container transition-transform active:scale-95"><span class="material-symbols-outlined text-2xl">search</span></button><a aria-label="Cart" class="relative w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container text-primary-container transition-transform active:scale-95" data-path="cart" href="/cart" target="_top"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute top-1.5 right-1.5 min-w-[18px] h-[18px] px-1 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center justify-center shadow-sm">3</span></a><button aria-label="User Profile" class="w-11 h-11 flex items-center justify-center rounded-full active:scale-95 transition-transform ml-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="/assets/4d11daf8cc8758e48d1a.jpg" loading="eager" decoding="async" /></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 bg-surface"><div class="flex flex-col w-full px-margin-mobile pb-8 space-y-space-md max-w-xl mx-auto">
+<!-- Cart Header & Warmth Micro-Copy -->
+<div class="pt-2">
+<div class="flex items-center justify-between mb-1">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-primary-container tracking-tight">Your Snickers Stash</h1>
+<span class="font-label-md text-label-md px-2.5 py-1 bg-primary-fixed text-on-primary-fixed rounded-full shadow-sm" id="header-count">3 items</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Packed with nougat, caramel &amp; fresh roasted peanuts.</p>
+</div>
+<!-- Free Shipping Progress Tracker -->
+<div class="bg-surface-container rounded-xl p-space-md shadow-sm space-y-2">
+<div class="flex items-center justify-between text-on-surface-variant">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-xl">ac_unit</span>
+<span class="font-label-md text-label-md text-primary-container">Cold-Pack Express Shipping</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold" id="shipping-gap-text">Add $3.54 for FREE</span>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full h-2.5 bg-surface-container-highest rounded-full overflow-hidden p-0.5">
+<div class="h-full bg-secondary-container rounded-full transition-all duration-500 ease-out" id="shipping-progress-bar" style="width: 82%;"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span>
+<span>Melt-Proof Insulated Pouch Included</span>
+</span>
+<span class="font-bold text-primary-container">Threshold: $35.00</span>
+</div>
+</div>
+<!-- Cart Items List -->
+<div class="space-y-space-sm" id="cart-items-container">
+<!-- Item 1: Original 12-Pack -->
+<div class="cart-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-300 relative flex gap-space-md" data-id="item-1" data-qty="1" data-unit-price="22.99">
+<div class="w-20 h-20 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Official Snickers Original Chocolate Bars 12-pack brown box on creamy marble countertop, vibrant milk chocolate coating and roasted peanuts visible, luxurious direct-to-consumer confectionery packaging photography" src="/assets/072b60460ea5a45ac440.jpg" loading="eager" decoding="async" />
+<span class="absolute bottom-1 left-1 font-label-sm text-[10px] leading-none px-1.5 py-0.5 bg-tertiary-container text-on-tertiary rounded font-bold">12-Pack</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex justify-between items-start gap-2">
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-primary-container truncate leading-snug">Snickers Original</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Signature Milk Chocolate Bar Box</p>
+</div>
+<button aria-label="Remove item" class="remove-btn text-outline hover:text-error transition-colors p-1 rounded-full active:scale-90" onclick="removeItem('item-1')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-headline-sm text-primary-container item-total-price">$22.99</span>
+<!-- Pill Stepper -->
+<div class="flex items-center bg-surface-container rounded-full px-1.5 py-0.5 gap-2">
+<button class="w-6 h-6 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container-highest active:scale-90 transition-transform" onclick="updateQty('item-1', -1)">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="font-label-md text-label-md text-primary-container min-w-[16px] text-center item-qty-display">1</span>
+<button class="w-6 h-6 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container-highest active:scale-90 transition-transform" onclick="updateQty('item-1', 1)">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 2: Peanut Butter Squared -->
+<div class="cart-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-300 relative flex gap-space-md" data-id="item-2" data-qty="2" data-unit-price="2.99">
+<div class="w-20 h-20 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Snickers Peanut Butter Squared candy bar sliced in half showing creamy peanut butter core with gooey golden caramel layer, dramatic warm studio product shot, roasted peanuts around" src="/assets/554ff89307686f0af25a.jpg" loading="lazy" decoding="async" />
+<span class="absolute bottom-1 left-1 font-label-sm text-[10px] leading-none px-1.5 py-0.5 bg-secondary text-on-secondary rounded font-bold">Squared</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex justify-between items-start gap-2">
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-primary-container truncate leading-snug">PB Squared</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Real creamy peanut butter Duo</p>
+</div>
+<button aria-label="Remove item" class="remove-btn text-outline hover:text-error transition-colors p-1 rounded-full active:scale-90" onclick="removeItem('item-2')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-headline-sm text-primary-container item-total-price">$5.98</span>
+<!-- Pill Stepper -->
+<div class="flex items-center bg-surface-container rounded-full px-1.5 py-0.5 gap-2">
+<button class="w-6 h-6 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container-highest active:scale-90 transition-transform" onclick="updateQty('item-2', -1)">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="font-label-md text-label-md text-primary-container min-w-[16px] text-center item-qty-display">2</span>
+<button class="w-6 h-6 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container-highest active:scale-90 transition-transform" onclick="updateQty('item-2', 1)">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Item 3: White Chocolate Limited Edition -->
+<div class="cart-item bg-surface-container-lowest rounded-xl p-space-md shadow-sm transition-all duration-300 relative flex gap-space-md" data-id="item-3" data-qty="1" data-unit-price="2.49">
+<div class="w-20 h-20 rounded-lg bg-surface-container flex-shrink-0 overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="Snickers White Chocolate bar unwrapped on pristine glossy surface, creamy ivory white chocolate coating with roasted peanuts poking through rich caramel drizzle" src="/assets/02479488aebf155d8238.jpg" loading="lazy" decoding="async" />
+<span class="absolute bottom-1 left-1 font-label-sm text-[10px] leading-none px-1.5 py-0.5 bg-on-tertiary-fixed-variant text-on-tertiary rounded font-bold">Limited</span>
+</div>
+<div class="flex-1 min-w-0 flex flex-col justify-between">
+<div class="flex justify-between items-start gap-2">
+<div class="min-w-0">
+<h2 class="font-headline-sm text-headline-sm text-primary-container truncate leading-snug">White Chocolate</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rich vanilla nougat &amp; peanuts</p>
+</div>
+<button aria-label="Remove item" class="remove-btn text-outline hover:text-error transition-colors p-1 rounded-full active:scale-90" onclick="removeItem('item-3')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-headline-sm text-primary-container item-total-price">$2.49</span>
+<!-- Pill Stepper -->
+<div class="flex items-center bg-surface-container rounded-full px-1.5 py-0.5 gap-2">
+<button class="w-6 h-6 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container-highest active:scale-90 transition-transform" onclick="updateQty('item-3', -1)">
+<span class="material-symbols-outlined text-base">remove</span>
+</button>
+<span class="font-label-md text-label-md text-primary-container min-w-[16px] text-center item-qty-display">1</span>
+<button class="w-6 h-6 flex items-center justify-center rounded-full text-primary-container hover:bg-surface-container-highest active:scale-90 transition-transform" onclick="updateQty('item-3', 1)">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Promo Code Section -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-3">
+<div class="flex items-center gap-2">
+<div class="flex-1 relative">
+<input class="w-full h-11 bg-surface-container-low text-primary-container px-3.5 rounded-full font-body-sm text-body-sm uppercase tracking-wider placeholder:text-outline focus:bg-surface-container-lowest focus:shadow-sm transition-all" id="coupon-input" placeholder="Promo or Gift Code" type="text" value="CHOC10"/>
+</div>
+<button class="h-11 px-5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary active:scale-95 transition-all" onclick="handlePromoClick()">
+        Apply
+      </button>
+</div>
+<!-- Active Applied Promo Tag -->
+<div class="flex items-center justify-between bg-surface-container-low px-3 py-1.5 rounded-full text-on-secondary-container" id="promo-chip">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-base">confirmation_number</span>
+<span class="font-label-sm text-label-sm font-bold text-primary-container tracking-wide">CODE: CHOC10 applied (10% OFF)</span>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-secondary">-$3.15</span>
+</div>
+</div>
+<!-- Order Financial Summary -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm space-y-3">
+<h3 class="font-headline-sm text-headline-sm text-primary-container">Order Summary</h3>
+<div class="space-y-2 text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex justify-between items-center">
+<span>Cart Subtotal</span>
+<span class="font-semibold text-primary-container" id="summary-subtotal">$31.46</span>
+</div>
+<div class="flex justify-between items-center text-secondary">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">local_offer</span>
+<span>Promo Savings (CHOC10)</span>
+</span>
+<span class="font-semibold" id="summary-discount">-$3.15</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="flex items-center gap-1">
+<span>Cold-Pack Insulated Delivery</span>
+<span class="material-symbols-outlined text-xs text-outline cursor-pointer" title="Thermal liner with dry-gel refrigerant packs">info</span>
+</span>
+<span class="font-semibold text-primary-container" id="summary-shipping">$4.99</span>
+</div>
+<div class="flex justify-between items-center">
+<span>Estimated State Tax</span>
+<span class="font-semibold text-primary-container" id="summary-tax">$1.98</span>
+</div>
+</div>
+<!-- Divider alternative using container tone shift -->
+<div class="h-0.5 bg-surface-container rounded-full my-2"></div>
+<div class="flex justify-between items-baseline pt-1">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary-container">Grand Total</span>
+<p class="font-label-sm text-label-sm text-outline">All import taxes &amp; cold packs included</p>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary-container" id="summary-grand-total">$35.28</span>
+</div>
+</div>
+<!-- Express Checkout Pills -->
+<div class="space-y-2">
+<div class="flex items-center gap-2 text-center justify-center">
+<div class="h-px bg-surface-container flex-1"></div>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Instant Express Checkout</span>
+<div class="h-px bg-surface-container flex-1"></div>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button aria-label="Pay with Apple Pay" class="h-12 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-center hover:bg-surface-container transition-all active:scale-95 text-primary-container">
+<span class="font-headline-sm text-lg font-bold tracking-tight">Pay</span>
+</button>
+<button aria-label="Pay with Google Pay" class="h-12 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-center hover:bg-surface-container transition-all active:scale-95 text-primary-container">
+<span class="font-label-lg text-label-lg font-bold tracking-tight text-primary-container">G Pay</span>
+</button>
+<button aria-label="Pay with PayPal" class="h-12 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-center hover:bg-surface-container transition-all active:scale-95 text-on-tertiary-fixed-variant">
+<span class="font-headline-sm text-base italic font-bold">PayPal</span>
+</button>
+</div>
+</div>
+<!-- Sticky Full Width Checkout Button Container -->
+<div class="pt-2">
+<button class="w-full py-4 px-6 rounded-full bg-secondary-container text-on-secondary-container shadow-md hover:shadow-lg active:scale-[0.98] transition-all flex items-center justify-between group" id="main-checkout-btn">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">lock</span>
+<span class="font-label-lg text-label-lg font-bold">Order via WhatsApp</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm" id="cta-total-badge">$35.28</span>
+<span class="material-symbols-outlined text-xl">arrow_forward</span>
+</div>
+</button>
+</div>
+<!-- Trust & Guarantees Badges -->
+<div class="pt-2 grid grid-cols-2 gap-2 text-center">
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-secondary text-2xl">shield</span>
+<span class="font-label-md text-label-md text-primary-container">Melt-Free Guarantee</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Arrives solid or replaced free</span>
+</div>
+<div class="p-3 bg-surface-container-low rounded-xl flex flex-col items-center justify-center gap-1">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant text-2xl">lock_person</span>
+<span class="font-label-md text-label-md text-primary-container">256-Bit SSL Checkout</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Bank-grade encryption</span>
+</div>
+</div>
+<!-- Empty State Placeholder (Hidden until empty) -->
+<div class="hidden text-center py-12 px-4 space-y-4" id="cart-empty-view">
+<div class="w-20 h-20 mx-auto rounded-full bg-surface-container-high flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-4xl">cookie</span>
+</div>
+<div class="space-y-1">
+<h3 class="font-headline-md text-headline-md text-primary-container">You're not you when you're empty!</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Your stash has no chocolate. Satisfy your craving with classic Snickers favorites.</p>
+</div>
+<a class="inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg active:scale-95 transition-transform" data-path="shop" href="/products" target="_top">
+      Explore Snickers Bars
+    </a>
+</div>
+</div>
+<script>
+  (function() {
+    let promoDiscountPercent = 0.10;
+    const shippingThreshold = 35.00;
+
+    function calculateCart() {
+      const items = document.querySelectorAll('.cart-item');
+      let subtotal = 0;
+      let totalCount = 0;
+
+      items.forEach(item => {
+        const price = parseFloat(item.getAttribute('data-unit-price')) || 0;
+        const qty = parseInt(item.getAttribute('data-qty')) || 0;
+        subtotal += (price * qty);
+        totalCount += qty;
+      });
+
+      const headerCount = document.getElementById('header-count');
+      if (headerCount) {
+        headerCount.textContent = totalCount + (totalCount === 1 ? ' item' : ' items');
+      }
+
+      if (items.length === 0) {
+        const container = document.getElementById('cart-items-container');
+        const emptyView = document.getElementById('cart-empty-view');
+        if (container) container.classList.add('hidden');
+        if (emptyView) emptyView.classList.remove('hidden');
+        const checkoutBtn = document.getElementById('main-checkout-btn');
+        if (checkoutBtn) checkoutBtn.disabled = true;
+      }
+
+      // Calculate Discount
+      const discount = subtotal * promoDiscountPercent;
+      
+      // Calculate Shipping (Free if subtotal >= 35)
+      const shipping = subtotal >= shippingThreshold || subtotal === 0 ? 0.00 : 4.99;
+      
+      // Calculate Tax (~6.3%)
+      const tax = (subtotal - discount) > 0 ? (subtotal - discount) * 0.07 : 0;
+      
+      const grandTotal = Math.max(0, (subtotal - discount + shipping + tax));
+
+      // Update DOM
+      const subtotalEl = document.getElementById('summary-subtotal');
+      const discountEl = document.getElementById('summary-discount');
+      const shippingEl = document.getElementById('summary-shipping');
+      const taxEl = document.getElementById('summary-tax');
+      const grandTotalEl = document.getElementById('summary-grand-total');
+      const ctaTotalBadge = document.getElementById('cta-total-badge');
+      const progressBar = document.getElementById('shipping-progress-bar');
+      const gapText = document.getElementById('shipping-gap-text');
+
+      if (subtotalEl) subtotalEl.textContent = '$' + subtotal.toFixed(2);
+      if (discountEl) discountEl.textContent = '-$' + discount.toFixed(2);
+      if (shippingEl) shippingEl.textContent = shipping === 0 ? 'FREE' : '$' + shipping.toFixed(2);
+      if (taxEl) taxEl.textContent = '$' + tax.toFixed(2);
+      if (grandTotalEl) grandTotalEl.textContent = '$' + grandTotal.toFixed(2);
+      if (ctaTotalBadge) ctaTotalBadge.textContent = '$' + grandTotal.toFixed(2);
+
+      // Shipping progress bar logic
+      if (progressBar && gapText) {
+        const progressPercent = Math.min(100, Math.round((subtotal / shippingThreshold) * 100));
+        progressBar.style.width = progressPercent + '%';
+        
+        if (subtotal >= shippingThreshold) {
+          gapText.textContent = "FREE SHIPPING UNLOCKED!";
+          gapText.classList.remove('text-secondary');
+          gapText.classList.add('text-secondary-container');
+        } else {
+          const diff = (shippingThreshold - subtotal).toFixed(2);
+          gapText.textContent = 'Add $' + diff + ' for FREE';
+          gapText.classList.add('text-secondary');
+          gapText.classList.remove('text-secondary-container');
+        }
+      }
+    }
+
+    window.updateQty = function(itemId, delta) {
+      const card = document.querySelector('[data-id="' + itemId + '"]');
+      if (!card) return;
+      let qty = parseInt(card.getAttribute('data-qty')) || 1;
+      qty += delta;
+
+      if (qty <= 0) {
+        window.removeItem(itemId);
+        return;
+      }
+
+      card.setAttribute('data-qty', qty);
+      const display = card.querySelector('.item-qty-display');
+      if (display) display.textContent = qty;
+
+      const unitPrice = parseFloat(card.getAttribute('data-unit-price')) || 0;
+      const totalEl = card.querySelector('.item-total-price');
+      if (totalEl) totalEl.textContent = '$' + (unitPrice * qty).toFixed(2);
+
+      calculateCart();
+    };
+
+    window.removeItem = function(itemId) {
+      const card = document.querySelector('[data-id="' + itemId + '"]');
+      if (!card) return;
+      card.style.opacity = '0';
+      card.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        card.remove();
+        calculateCart();
+      }, 200);
+    };
+
+    window.handlePromoClick = function() {
+      const input = document.getElementById('coupon-input');
+      const val = input ? input.value.trim().toUpperCase() : '';
+      const promoChip = document.getElementById('promo-chip');
+
+      if (val === 'CHOC10' || val === 'SNICKERS') {
+        promoDiscountPercent = 0.10;
+        if (promoChip) promoChip.classList.remove('hidden');
+      } else if (val === '') {
+        promoDiscountPercent = 0;
+        if (promoChip) promoChip.classList.add('hidden');
+      } else {
+        alert('Code not recognized. Use "CHOC10" for 10% off your stash!');
+      }
+      calculateCart();
+    };
+
+    const checkoutButton = document.getElementById('main-checkout-btn');
+    if (checkoutButton) checkoutButton.addEventListener('click', () => {
+      const lines = Array.from(document.querySelectorAll('.cart-item')).map((item) => {
+        const title = item.querySelector('h3, h4, [class*="font-headline"]')?.textContent?.trim() || 'Snickers item';
+        const qty = parseInt(item.getAttribute('data-qty')) || 1;
+        const price = parseFloat(item.getAttribute('data-unit-price')) || 0;
+        return '• ' + title + ' × ' + qty + ' — 
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(45,22,6,0.06)]" data-active-classes="text-primary-container bg-surface-container font-bold"><div class="flex items-center justify-around h-16 px-space-md"><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="home" href="/" target="_top"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-label-sm mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="shop" href="/products" target="_top"><span class="material-symbols-outlined text-2xl">storefront</span><span class="font-label-sm text-label-sm mt-0.5">Shop</span></a><a aria-current="page" class="relative flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full transition-all active:scale-95 text-primary-container bg-surface-container font-bold" data-path="cart" href="/cart" target="_top"><div class="relative"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute -top-1 -right-2 min-w-[16px] h-[16px] px-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center justify-center leading-none text-[10px]">3</span></div><span class="font-label-sm text-label-sm mt-0.5">Cart</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="saved" href="/cart" target="_top"><span class="material-symbols-outlined text-2xl">favorite</span><span class="font-label-sm text-label-sm mt-0.5">Saved</span></a></div></nav></body></html> + (price * qty).toFixed(2);
+      });
+      if (!lines.length) return;
+      const total = Array.from(document.querySelectorAll('.cart-item')).reduce((sum, item) => sum + (parseFloat(item.getAttribute('data-unit-price')) || 0) * (parseInt(item.getAttribute('data-qty')) || 1), 0);
+      const message = encodeURIComponent('Hi! I’d like to order:\n' + lines.join('\n') + '\nTotal: 
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(45,22,6,0.06)]" data-active-classes="text-primary-container bg-surface-container font-bold"><div class="flex items-center justify-around h-16 px-space-md"><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="home" href="/" target="_top"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-label-sm mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="shop" href="/products" target="_top"><span class="material-symbols-outlined text-2xl">storefront</span><span class="font-label-sm text-label-sm mt-0.5">Shop</span></a><a aria-current="page" class="relative flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full transition-all active:scale-95 text-primary-container bg-surface-container font-bold" data-path="cart" href="/cart" target="_top"><div class="relative"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute -top-1 -right-2 min-w-[16px] h-[16px] px-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center justify-center leading-none text-[10px]">3</span></div><span class="font-label-sm text-label-sm mt-0.5">Cart</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="saved" href="/cart" target="_top"><span class="material-symbols-outlined text-2xl">favorite</span><span class="font-label-sm text-label-sm mt-0.5">Saved</span></a></div></nav></body></html> + total.toFixed(2));
+      window.open('https://wa.me/?text=' + message, '_blank', 'noopener,noreferrer');
+    });
+
+    // Initial pass to sync states
+    calculateCart();
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-4px_24px_rgba(45,22,6,0.06)]" data-active-classes="text-primary-container bg-surface-container font-bold"><div class="flex items-center justify-around h-16 px-space-md"><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="home" href="/" target="_top"><span class="material-symbols-outlined text-2xl">home</span><span class="font-label-sm text-label-sm mt-0.5">Home</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="shop" href="/products" target="_top"><span class="material-symbols-outlined text-2xl">storefront</span><span class="font-label-sm text-label-sm mt-0.5">Shop</span></a><a aria-current="page" class="relative flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full transition-all active:scale-95 text-primary-container bg-surface-container font-bold" data-path="cart" href="/cart" target="_top"><div class="relative"><span class="material-symbols-outlined text-2xl">shopping_bag</span><span class="absolute -top-1 -right-2 min-w-[16px] h-[16px] px-0.5 bg-secondary-container text-on-secondary-container font-label-sm text-label-sm rounded-full flex items-center justify-center leading-none text-[10px]">3</span></div><span class="font-label-sm text-label-sm mt-0.5">Cart</span></a><a class="flex flex-col items-center justify-center min-w-[64px] h-12 rounded-full text-on-surface-variant hover:text-primary-container transition-all active:scale-95" data-path="saved" href="/cart" target="_top"><span class="material-symbols-outlined text-2xl">favorite</span><span class="font-label-sm text-label-sm mt-0.5">Saved</span></a></div></nav></body></html>

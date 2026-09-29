@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><link rel="stylesheet" href="/stitch/styles.css"><link rel="stylesheet" href="/assets/fonts.css"><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#fef9f2;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface font-body-md text-body-md text-on-surface flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl pt-safe shadow-[0_4px_20px_rgba(45,22,6,0.05)]"><div class="h-16 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Back" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container active:scale-95 transition-all text-primary-container" onclick="history.back()"><span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span></button><img alt="SNICKERS Brand Logo" class="h-8 w-auto object-contain hidden xs:inline-block" src="/assets/af9f31014eb3819b90ab.jpg" loading="eager" decoding="async" /><h1 class="font-headline-sm text-headline-sm text-primary-container truncate max-w-[180px] sm:max-w-xs">Single Product View</h1></div><div class="flex items-center gap-space-xs"><button aria-label="Share" class="w-11 h-11 flex items-center justify-center rounded-full hover:bg-surface-container text-primary-container transition-all active:scale-95"><span class="material-symbols-outlined text-2xl">share</span></button><button aria-label="Profile" class="w-11 h-11 flex items-center justify-center rounded-full active:scale-95 transition-transform"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="/assets/4d11daf8cc8758e48d1a.jpg" loading="eager" decoding="async" /></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-28">
+<!-- Micro Breadcrumb & Category Tracker -->
+<div class="px-margin-mobile pt-3 pb-2 flex items-center justify-between">
+<div class="flex items-center gap-1.5 overflow-x-auto text-label-sm font-label-sm text-on-surface-variant whitespace-nowrap">
+<span>Shop</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span>Bars</span>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-primary font-semibold">Original Full Size</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-label-sm font-label-sm text-secondary font-bold tracking-wider uppercase">In Stock</span>
+</div>
+</div>
+<!-- Hero Visual Stage -->
+<div class="px-margin-mobile relative">
+<div class="relative w-full aspect-square bg-surface-container rounded-2xl overflow-hidden shadow-sm flex items-center justify-center">
+<!-- Active Main Image -->
+<img class="w-full h-full object-cover transition-all duration-300 transform scale-100" data-alt="Ultra-close commercial product shot of a freshly broken Snickers candy bar on a warm nougat cream marble surface. Glossy stretching amber caramel ribbons pull apart revealing crunchy roasted golden Virginia peanuts embedded atop a light fluffy nougat base, enrobed in textured milk chocolate ripples. Studio warm directional lighting highlighting the gooey caramel and chocolate sheen." id="main-product-img" src="/assets/0687741879ca31b27105.jpg" loading="eager" decoding="async" />
+<!-- Floating Badges Top Left -->
+<div class="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+<span class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-2.5 py-1 rounded-full text-label-sm font-label-sm font-bold shadow-sm inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+          #1 Bestseller
+        </span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-2.5 py-0.5 rounded-full text-label-sm font-label-sm font-bold shadow-sm">
+          Fresh Batch Guarantee
+        </span>
+</div>
+<!-- Quick Action Badges Top Right -->
+<div class="absolute top-3 right-3 flex flex-col gap-2 z-10">
+<button aria-label="Add to wishlist" class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md text-primary flex items-center justify-center shadow-md active:scale-90 transition-transform" id="wishlist-btn" onclick="toggleFavorite(this)">
+<span class="material-symbols-outlined text-xl transition-colors">favorite</span>
+</button>
+<button aria-label="Share product" class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur-md text-primary flex items-center justify-center shadow-md active:scale-90 transition-transform" onclick="shareProduct()">
+<span class="material-symbols-outlined text-xl">share</span>
+</button>
+</div>
+<!-- Cross Section Exploded Taste Indicator -->
+<div class="absolute bottom-3 left-3 right-3 bg-surface/85 backdrop-blur-md rounded-xl p-2 px-3 shadow-md flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5 text-primary-container">
+<span class="material-symbols-outlined text-base text-secondary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Satisfies Your Hunger</span>
+</div>
+<span class="text-on-surface-variant font-body-sm">4 Layers Inside</span>
+</div>
+</div>
+<!-- Thumbnails Switcher -->
+<div class="flex items-center gap-2.5 mt-3 overflow-x-auto pb-1.5" id="gallery-thumbs">
+<button class="gallery-thumb flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shadow-sm p-0.5 transition-all outline outline-2 outline-primary" onclick="selectGallery(this, 'main')">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Cross section view of a sliced Snickers bar showing thick gooey golden caramel, roasted peanut halves, and airy nougat, close-up textured shot." src="/assets/6058e616c7cc2cf90542.jpg" loading="lazy" decoding="async" />
+</button>
+<button class="gallery-thumb flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-surface-container shadow-sm p-0.5 transition-all outline outline-0" onclick="selectGallery(this, 'pack')">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Classic Snickers brand candy bar in original shiny brown plastic foil wrapper with iconic white angled typography outlined in blue, studio packaging shot." src="/assets/05905d551fe2f2a0fe21.jpg" loading="lazy" decoding="async" />
+</button>
+<button class="gallery-thumb flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-surface-container shadow-sm p-0.5 transition-all outline outline-0" onclick="selectGallery(this, 'bite')">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Artisanal macro photo of Snickers bar split in two halves with dynamic stretchy caramel drip, warm appetizing confectionery lighting." src="/assets/3dc8c26c68b9da62ba4d.jpg" loading="lazy" decoding="async" />
+</button>
+<button class="gallery-thumb flex-shrink-0 w-16 h-16 rounded-xl overflow-hidden bg-surface-container shadow-sm p-0.5 transition-all outline outline-0" onclick="selectGallery(this, 'nutrition')">
+<img class="w-full h-full object-cover rounded-lg" data-alt="Clean minimal nutrition facts panel graphics for Snickers full size candy bar with clear calories, protein, and sugar breakdown." src="/assets/c52c91922812a0daade4.jpg" loading="lazy" decoding="async" />
+</button>
+</div>
+</div>
+<!-- Product Meta & Identity -->
+<div class="px-margin-mobile mt-4 flex flex-col gap-2">
+<!-- Star Ratings -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<div class="flex text-secondary-container">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-headline-sm text-headline-sm text-primary">4.9</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(4,820 reviews)</span>
+</div>
+<span class="text-label-sm font-label-sm bg-surface-container text-on-surface-variant px-2.5 py-1 rounded-full">Single Bar (1.86 oz / 52.7g)</span>
+</div>
+<!-- Title -->
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary tracking-tight leading-tight">
+      Snickers Original Milk Chocolate Bar
+    </h2>
+<!-- Tasting Notes Tags -->
+<div class="flex flex-wrap gap-1.5 mt-1">
+<span class="bg-surface-container-high text-primary-container px-2.5 py-1 rounded-full text-label-sm font-label-sm">Roasted Virginia Peanuts</span>
+<span class="bg-surface-container-high text-primary-container px-2.5 py-1 rounded-full text-label-sm font-label-sm">Salted Caramel</span>
+<span class="bg-surface-container-high text-primary-container px-2.5 py-1 rounded-full text-label-sm font-label-sm">Fluffy Nougat</span>
+<span class="bg-surface-container-high text-primary-container px-2.5 py-1 rounded-full text-label-sm font-label-sm">Pure Milk Chocolate</span>
+</div>
+<!-- Price Section -->
+<div class="flex items-baseline gap-3 mt-2 bg-surface-container-low p-3.5 rounded-2xl">
+<span class="font-display-hero-mobile text-display-hero-mobile text-primary font-bold tracking-tight" id="displayed-price">$2.29</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md line-through text-outline" id="strike-price">$2.75</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold" id="discount-badge">Save 16% Today</span>
+</div>
+<div class="ml-auto flex items-center gap-1 text-on-secondary-container bg-secondary-fixed/50 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-sm">ac_unit</span>
+<span class="font-label-sm text-label-sm font-semibold">Cold-Pack Insulated</span>
+</div>
+</div>
+</div>
+<!-- Size / Pack Configuration -->
+<div class="px-margin-mobile mt-5 flex flex-col gap-2.5">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-primary">Choose Pack Size</label>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Free shipping over $35</span>
+</div>
+<div class="grid grid-cols-2 gap-2.5" id="pack-options">
+<!-- Option 1: Single Bar -->
+<button class="pack-btn p-3 rounded-2xl bg-surface-container text-left flex flex-col justify-between transition-all outline outline-2 outline-primary shadow-sm" onclick="selectPack(this, 2.29, 'Single Bar (1.86 oz)', '$2.75', 'Save 16% Today')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-label-md text-label-md text-primary">Single Bar</span>
+<span class="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>
+</span>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-primary">$2.29</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">1.86 oz</span>
+</div>
+</button>
+<!-- Option 2: King Size 2-Pack -->
+<button class="pack-btn p-3 rounded-2xl bg-surface-container text-left flex flex-col justify-between transition-all outline outline-0 shadow-sm" onclick="selectPack(this, 3.89, 'King Size 2-Pack', '$4.50', 'Save 14%')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-label-md text-label-md text-primary">King 2-Pack</span>
+<span class="w-4 h-4 rounded-full bg-surface-dim flex items-center justify-center"></span>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-primary">$3.89</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">3.29 oz</span>
+</div>
+</button>
+<!-- Option 3: 12-Pack Box -->
+<button class="pack-btn p-3 rounded-2xl bg-surface-container text-left flex flex-col justify-between transition-all outline outline-0 shadow-sm relative overflow-hidden" onclick="selectPack(this, 22.99, '12-Pack Box', '$27.48', 'Save 16% - Best Value')" type="button">
+<div class="absolute -top-1 -right-7 bg-secondary text-on-secondary px-6 py-0.5 text-[9px] font-bold rotate-45 uppercase tracking-tighter">Value</div>
+<div class="flex items-center justify-between w-full">
+<span class="font-label-md text-label-md text-primary">12-Pack Box</span>
+<span class="w-4 h-4 rounded-full bg-surface-dim flex items-center justify-center"></span>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-primary">$22.99</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">$1.91/bar</span>
+</div>
+</button>
+<!-- Option 4: 48-Pack Bulk -->
+<button class="pack-btn p-3 rounded-2xl bg-surface-container text-left flex flex-col justify-between transition-all outline outline-0 shadow-sm" onclick="selectPack(this, 79.99, '48-Pack Wholesale', '$109.92', 'Wholesale Tier')" type="button">
+<div class="flex items-center justify-between w-full">
+<span class="font-label-md text-label-md text-primary">48-Pack Case</span>
+<span class="w-4 h-4 rounded-full bg-surface-dim flex items-center justify-center"></span>
+</div>
+<div class="mt-2 flex items-baseline justify-between">
+<span class="font-headline-sm text-headline-sm text-primary">$79.99</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">$1.66/bar</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Quantity Stepper & Delight Counter -->
+<div class="px-margin-mobile mt-4 flex items-center justify-between bg-surface-container-low p-3 rounded-2xl">
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary">Quantity</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" id="inventory-status">Max 24 units per order</span>
+</div>
+<div class="flex items-center bg-surface-container rounded-full p-1 shadow-inner">
+<button aria-label="Decrease quantity" class="w-9 h-9 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center active:scale-90 transition-transform shadow-sm" onclick="changeQty(-1)">
+<span class="material-symbols-outlined text-lg">remove</span>
+</button>
+<span class="w-10 text-center font-headline-sm text-headline-sm text-primary" id="qty-count">1</span>
+<button aria-label="Increase quantity" class="w-9 h-9 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center active:scale-90 transition-transform shadow-sm" onclick="changeQty(1)">
+<span class="material-symbols-outlined text-lg">add</span>
+</button>
+</div>
+</div>
+<!-- Sensory Pairing / Taste Guide Delight Card -->
+<div class="px-margin-mobile mt-5">
+<div class="bg-primary-container text-surface p-4 rounded-2xl flex items-center gap-4 relative overflow-hidden shadow-md">
+<div class="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-secondary opacity-20 filter blur-xl"></div>
+<div class="w-12 h-12 rounded-xl bg-surface-container/20 flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl text-secondary-container">local_cafe</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-secondary-container uppercase tracking-wider font-bold">Barista Pairing Note</span>
+<span class="font-headline-sm text-headline-sm text-surface truncate">Pairs With Dark Roast Espresso</span>
+<p class="font-body-sm text-body-sm text-surface-variant line-clamp-2 mt-0.5">
+          Bitterness in rich espresso cuts through the luscious caramel pull, enhancing peanut saltiness.
+        </p>
+</div>
+</div>
+</div>
+<!-- Interactive Accordions -->
+<div class="px-margin-mobile mt-5 flex flex-col gap-2">
+<!-- Accordion 1: Ingredients & Allergen -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-sm transition-all">
+<button class="w-full p-4 flex items-center justify-between text-left" onclick="toggleAccordion('acc-ingredients', 'icon-ingredients')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl">grain</span>
+<span class="font-label-lg text-label-lg text-primary">Ingredients &amp; Allergens</span>
+</div>
+<span class="material-symbols-outlined text-primary transition-transform duration-200" id="icon-ingredients">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 pt-1 font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-2" id="acc-ingredients">
+<p>
+<strong class="text-primary font-semibold">Ingredients:</strong> Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin), Peanuts, Corn Syrup, Sugar, Palm Oil, Skim Milk, Lactose, Salt, Egg Whites, Artificial Flavor.
+        </p>
+<div class="p-2.5 bg-surface-container-high rounded-xl text-primary font-label-sm">
+<span class="font-bold text-error">Allergen Warning:</span> Contains Peanuts, Milk, Soy, and Egg. May contain tree nuts.
+        </div>
+</div>
+</div>
+<!-- Accordion 2: Nutrition Facts -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-sm transition-all">
+<button class="w-full p-4 flex items-center justify-between text-left" onclick="toggleAccordion('acc-nutrition', 'icon-nutrition')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl">monitor_weight</span>
+<span class="font-label-lg text-label-lg text-primary">Nutritional Breakdown</span>
+</div>
+<span class="material-symbols-outlined text-primary transition-transform duration-200" id="icon-nutrition">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 pt-1" id="acc-nutrition">
+<div class="grid grid-cols-3 gap-2 text-center">
+<div class="bg-surface-container-lowest p-2.5 rounded-xl shadow-xs">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Calories</span>
+<div class="font-headline-sm text-headline-sm text-primary">250</div>
+<span class="text-[11px] text-outline">13% DV</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-xl shadow-xs">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Total Fat</span>
+<div class="font-headline-sm text-headline-sm text-primary">12g</div>
+<span class="text-[11px] text-outline">15% DV</span>
+</div>
+<div class="bg-surface-container-lowest p-2.5 rounded-xl shadow-xs">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Protein</span>
+<div class="font-headline-sm text-headline-sm text-primary">4g</div>
+<span class="text-[11px] text-secondary font-semibold">Peanut Fuel</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-on-surface-variant pt-3 px-1">
+<span>Total Sugars: 27g</span>
+<span>Sodium: 125mg</span>
+<span>Carbs: 33g</span>
+</div>
+</div>
+</div>
+<!-- Accordion 3: Melt-Proof Cold Pack Guarantee -->
+<div class="bg-surface-container rounded-2xl overflow-hidden shadow-sm transition-all">
+<button class="w-full p-4 flex items-center justify-between text-left" onclick="toggleAccordion('acc-shipping', 'icon-shipping')">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-xl">shield</span>
+<span class="font-label-lg text-label-lg text-primary">No-Melt Cold-Pack Guarantee</span>
+</div>
+<span class="material-symbols-outlined text-primary transition-transform duration-200" id="icon-shipping">expand_more</span>
+</button>
+<div class="hidden px-4 pb-4 pt-1 font-body-sm text-body-sm text-on-surface-variant flex flex-col gap-2" id="acc-shipping">
+<p>
+          We pack every order with food-grade frozen gel packs inside insulated thermal envelopes at zero extra cost. If your chocolate bar arrives melted, we issue an instant full refund or immediate priority reshipment.
+        </p>
+</div>
+</div>
+</div>
+<!-- Related Flavors Carousel -->
+<div class="mt-7">
+<div class="px-margin-mobile flex items-center justify-between mb-3">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Explore The Lineup</span>
+<h3 class="font-headline-sm text-headline-sm text-primary">You Might Also Love</h3>
+</div>
+<button class="text-label-md font-label-md text-primary underline underline-offset-4">See All</button>
+</div>
+<div class="flex gap-3 overflow-x-auto px-margin-mobile pb-3">
+<!-- Card 1 -->
+<div class="flex-shrink-0 w-44 bg-surface-container-low rounded-2xl p-3 flex flex-col justify-between shadow-sm">
+<div class="w-full aspect-square bg-surface-container rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover" data-alt="Snickers Peanut Butter square chocolate bar cross section highlighting thick creamy peanut butter paste and crushed nuts layer." src="/assets/e2be34f2668a3f485c94.jpg" loading="lazy" decoding="async" />
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase">Smooth &amp; Creamy</span>
+<h4 class="font-label-md text-label-md text-primary truncate">Snickers Peanut Butter</h4>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-headline-sm text-primary">$2.49</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center active:scale-90 transition-transform" onclick="triggerQuickAdd(this, 'Snickers PB')">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex-shrink-0 w-44 bg-surface-container-low rounded-2xl p-3 flex flex-col justify-between shadow-sm">
+<div class="w-full aspect-square bg-surface-container rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover" data-alt="Snickers White chocolate bar enrobed in glossy creamy white coating with caramel and peanut layers exposed." src="/assets/cb2133e64285a71de8e2.jpg" loading="lazy" decoding="async" />
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase">Limited Batch</span>
+<h4 class="font-label-md text-label-md text-primary truncate">Snickers White Chocolate</h4>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-headline-sm text-primary">$2.49</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center active:scale-90 transition-transform" onclick="triggerQuickAdd(this, 'Snickers White')">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex-shrink-0 w-44 bg-surface-container-low rounded-2xl p-3 flex flex-col justify-between shadow-sm">
+<div class="w-full aspect-square bg-surface-container rounded-xl overflow-hidden mb-2">
+<img class="w-full h-full object-cover" data-alt="Snickers Dark Chocolate bar showing 60% rich cocoa dark chocolate ripples coating roasted peanuts and butterscotch caramel." src="/assets/c40c70434cb79ee774da.jpg" loading="lazy" decoding="async" />
+</div>
+<span class="text-[10px] font-bold text-secondary uppercase">Bold &amp; Rich</span>
+<h4 class="font-label-md text-label-md text-primary truncate">Snickers Dark Cocoa</h4>
+<div class="flex items-center justify-between mt-2">
+<span class="font-headline-sm text-headline-sm text-primary">$2.49</span>
+<button class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center active:scale-90 transition-transform" onclick="triggerQuickAdd(this, 'Snickers Dark')">
+<span class="material-symbols-outlined text-base">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- User Delight Customer Proof Quote -->
+<div class="px-margin-mobile mt-4 mb-2">
+<div class="p-3.5 bg-surface-container rounded-2xl flex items-start gap-3 shadow-xs">
+<span class="material-symbols-outlined text-secondary text-2xl">format_quote</span>
+<div class="flex flex-col">
+<p class="font-body-sm text-body-sm text-primary italic">
+          "The fresh crunch of the peanuts and that classic caramel pull is unmatched. Arrived chilled and pristine!"
+        </p>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1 font-semibold">— Marcus T. • Verified Chocoholic</span>
+</div>
+</div>
+</div>
+<!-- Sticky Bottom Purchase Controls Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-xl pb-safe shadow-[0_-8px_24px_rgba(45,22,6,0.08)]">
+<div class="max-w-md mx-auto px-margin-mobile py-2.5 flex items-center gap-2.5">
+<!-- Add to Cart CTA -->
+<button class="flex-1 h-13 py-3 px-4 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 active:scale-98 transition-all shadow-md" id="add-to-cart-cta" onclick="handleAddToCart()">
+<span class="material-symbols-outlined text-xl">shopping_bag</span>
+<span id="cta-cart-label">Add to Cart • $2.29</span>
+</button>
+<!-- Instant 1-Click Buy Now CTA -->
+<button class="h-13 py-3 px-5 rounded-full bg-secondary-container text-on-secondary-container font-label-lg text-label-lg flex items-center justify-center gap-1 active:scale-98 transition-all shadow-md" onclick="handleInstantBuy()">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Buy Now</span>
+</button>
+</div>
+</div>
+<!-- Toast Notification Pill -->
+<div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-50 bg-primary-container text-on-primary px-4 py-2 rounded-full font-label-md text-label-md shadow-xl flex items-center gap-2 opacity-0 pointer-events-none transition-all duration-300" id="toast-notify">
+<span class="material-symbols-outlined text-secondary-container text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span id="toast-msg">Added to your bag!</span>
+</div>
+</div>
+<script>
+  let currentUnitPrice = 2.29;
+  let currentQuantity = 1;
+  let currentPackName = 'Single Bar (1.86 oz)';
+
+  function updateCTAText() {
+    const total = (currentUnitPrice * currentQuantity).toFixed(2);
+    const label = document.getElementById('cta-cart-label');
+    const display = document.getElementById('displayed-price');
+    if (label) {
+      label.innerText = `Add to Cart • $${total}`;
+    }
+    if (display) {
+      display.innerText = `$${(currentUnitPrice).toFixed(2)}`;
+    }
+  }
+
+  function selectPack(element, price, name, strikePrice, discount) {
+    currentUnitPrice = price;
+    currentPackName = name;
+
+    // Reset outline states
+    const buttons = document.querySelectorAll('.pack-btn');
+    buttons.forEach(btn => {
+      btn.classList.remove('outline-2', 'outline-primary');
+      btn.classList.add('outline-0');
+      const radio = btn.querySelector('.rounded-full');
+      if (radio) {
+        radio.innerHTML = '';
+        radio.classList.remove('bg-primary');
+        radio.classList.add('bg-surface-dim');
+      }
+    });
+
+    // Highlight selected
+    element.classList.remove('outline-0');
+    element.classList.add('outline-2', 'outline-primary');
+    const radio = element.querySelector('.rounded-full');
+    if (radio) {
+      radio.classList.remove('bg-surface-dim');
+      radio.classList.add('bg-primary');
+      radio.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-on-primary"></span>';
+    }
+
+    const strikeEl = document.getElementById('strike-price');
+    const discountEl = document.getElementById('discount-badge');
+    if (strikeEl) strikeEl.innerText = strikePrice;
+    if (discountEl) discountEl.innerText = discount;
+
+    updateCTAText();
+  }
+
+  function changeQty(delta) {
+    const newQty = currentQuantity + delta;
+    if (newQty >= 1 && newQty <= 24) {
+      currentQuantity = newQty;
+      const countEl = document.getElementById('qty-count');
+      if (countEl) countEl.innerText = currentQuantity;
+      updateCTAText();
+    }
+  }
+
+  function toggleAccordion(contentId, iconId) {
+    const content = document.getElementById(contentId);
+    const icon = document.getElementById(iconId);
+    if (!content || !icon) return;
+
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      icon.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      icon.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  function selectGallery(element, key) {
+    const allThumbs = document.querySelectorAll('.gallery-thumb');
+    allThumbs.forEach(t => {
+      t.classList.remove('outline-2', 'outline-primary');
+      t.classList.add('outline-0');
+    });
+    element.classList.remove('outline-0');
+    element.classList.add('outline-2', 'outline-primary');
+
+    const mainImg = document.getElementById('main-product-img');
+    if (mainImg) {
+      mainImg.classList.add('opacity-75');
+      setTimeout(() => {
+        mainImg.classList.remove('opacity-75');
+      }, 150);
+    }
+  }
+
+  function toggleFavorite(btn) {
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (!icon) return;
+    const isLiked = icon.style.fontVariationSettings?.includes("'FILL' 1");
+    if (isLiked) {
+      icon.style.fontVariationSettings = "'FILL' 0";
+      icon.classList.remove('text-error');
+      showToast('Removed from favorites');
+    } else {
+      icon.style.fontVariationSettings = "'FILL' 1";
+      icon.classList.add('text-error');
+      showToast('Saved to your favorites!');
+    }
+  }
+
+  function shareProduct() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Snickers Original Chocolate Bar',
+        text: 'Hungry? Grab an authentic fresh Snickers Bar!',
+        url: window.location.href,
+      }).catch(() => {});
+    } else {
+      showToast('Product link copied to clipboard!');
+    }
+  }
+
+  function triggerQuickAdd(btn, title) {
+    btn.classList.add('scale-75');
+    setTimeout(() => btn.classList.remove('scale-75'), 150);
+    showToast(`Added ${title} to bag!`);
+  }
+
+  function handleAddToCart() {
+    const btn = document.getElementById('add-to-cart-cta');
+    if (btn) {
+      btn.classList.add('scale-95');
+      setTimeout(() => btn.classList.remove('scale-95'), 150);
+    }
+    const key = 'snickers-cart';
+    const cart = JSON.parse(localStorage.getItem(key) || '[]');
+    const existing = cart.find((item) => item.name === currentPackName);
+    if (existing) existing.qty += currentQuantity;
+    else cart.push({ name: currentPackName, price: currentUnitPrice, qty: currentQuantity });
+    localStorage.setItem(key, JSON.stringify(cart));
+    updateCartBadge();
+    showToast(`Added ${currentQuantity}x ${currentPackName} to your cart!`);
+  }
+
+  function handleInstantBuy() {
+    showToast('Redirecting to 1-Click Fast Checkout...');
+  }
+
+  function updateCartBadge() {
+    const cart = JSON.parse(localStorage.getItem('snickers-cart') || '[]');
+    const count = cart.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+    document.querySelectorAll('a[data-path="cart"] span:last-child').forEach((badge) => { badge.textContent = count; });
+  }
+  updateCartBadge();
+
+  function showToast(text) {
+    const toast = document.getElementById('toast-notify');
+    const msg = document.getElementById('toast-msg');
+    if (!toast || !msg) return;
+    msg.innerText = text;
+    toast.classList.remove('opacity-0', 'pointer-events-none');
+    toast.classList.add('opacity-100');
+    setTimeout(() => {
+      toast.classList.add('opacity-0', 'pointer-events-none');
+      toast.classList.remove('opacity-100');
+    }, 2400);
+  }
+</script></main></body></html>
